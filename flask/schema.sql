@@ -1,7 +1,0 @@
-DROP TABLE IF EXISTS countries;
-
-CREATE TABLE countries (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  country_name TEXT UNIQUE NOT NULL,
-  capital TEXT UNIQUE NOT NULL
-);
