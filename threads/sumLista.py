@@ -10,7 +10,7 @@ for i in range(vetor_size):
 
 aux_thread = []
 
-def soma(id,start, end):
+def soma(id,start , end):
   print('thread ',id,' start ',start, ' end ',end)
   soma = 0
   for i in range(start, end):
@@ -23,6 +23,7 @@ thread_list = list()
 for i in range(thread_size):
     start = i       * (vetor_size/thread_size)
     end   =(i + 1 ) * (vetor_size/thread_size)
+      
     t = threading.Thread(target=soma, args=(i,int(start),int(end)))
     thread_list.append(t)
     t.start()
