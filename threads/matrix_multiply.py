@@ -4,12 +4,12 @@ from pprint import pprint
 
 thread_size = 4
 #mat1 = [[1, 1, 1, 1], [1, 1, 1, 1],[1, 1, 1, 1],[1, 1, 1, 1]]
-mat1 = np.random.randint(0,5,(10,10))
+mat1 = np.random.randint(0,5,(1000,1000))
 mat1lin = len(mat1)                
 mat1col = len(mat1[0])             
 
 #mat2 = [[1, 1, 1, 1], [1, 1, 1, 1],[1, 1, 1, 1],[1, 1, 1, 1]]
-mat2 = np.random.randint(0,5,(10,10))
+mat2 = np.random.randint(0,5,(1000,1000))
 mat2lin = len(mat2)                
 mat2col = len(mat2[0])
 
