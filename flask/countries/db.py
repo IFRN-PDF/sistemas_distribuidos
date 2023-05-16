@@ -14,8 +14,10 @@ def get_db():
     if 'db' not in g:
         g.db = sqlite3.connect(
             DATABASE,
+            #o sqlite3 tentará converter os tipos de coluna do SQLite para um tipo Python correspondente.
             detect_types=sqlite3.PARSE_DECLTYPES
         )
+        # para que os dados retornem em estilo de dicionario
         g.db.row_factory = sqlite3.Row
 
     return g.db

@@ -7,7 +7,7 @@ def get():
     print(response.json())
  
 def insert():
-    country = {"country_name": "Argentina", "capital": "Buenos Aires"}
+    country = {"country_name": "Inglaterra", "capital": "Londres"}
     response = requests.post(api_url, json=country)
     print(response.json())
 get()
