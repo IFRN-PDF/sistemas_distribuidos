@@ -45,6 +45,39 @@ def add_country():
         return country_schema.dump(new_country), 201
     return {"error": "A requisição deve ser JSON"}, 415
 
+@app.route("/countries/<int:id>", methods=['GET'])
+def get_country(id):
+    country = Country.query.get(id)
+    if country is not None:
+        return country_schema.dump(country), 200
+    else:
+        return {"error": "País não encontrado"}, 404
+
+@app.route("/countries/<int:id>", methods=['PUT'])
+def update_country(id):
+    country = Country.query.get(id)
+    if country is not None:
+        if request.is_json:
+            data = request.get_json()
+            country.country_name = data['country_name']
+            country.capital = data['capital']
+            db.session.commit()
+            return country_schema.dump(country), 200
+        else:
+            return {"error": "A requisição deve ser JSON"}, 415
+    else:
+        return {"error": "País não encontrado"}, 404
+
+@app.route("/countries/<int:id>", methods=['DELETE'])
+def delete_country(id):
+    country = Country.query.get(id)
+    if country is not None:
+        db.session.delete(country)
+        db.session.commit()
+        return {"message": "País deletado com sucesso"}, 200
+    else:
+        return {"error": "País não encontrado"}, 404
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
