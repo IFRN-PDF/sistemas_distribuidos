@@ -16,7 +16,7 @@ for t in range(5):
 
 print("MEIO")
 
-#for thread in lista_threads:
-#    thread.join()
+for thread in lista_threads:
+    thread.join()
     
 print("FINAL")
